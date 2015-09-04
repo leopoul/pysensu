@@ -100,7 +100,7 @@ class Pysensu():
             "check": check,
             "subscribers": subscribers
         }
-        r = self._api_call("{}/check/request".format(self.api_url), "post", json.dumps(data))
+        r = self._api_call("{}/request".format(self.api_url), "post", json.dumps(data))
         if r.status_code != requests.codes.accepted:
             raise ValueError("Error requesting check ({}, {})".format(r.status_code, r.json))
 
