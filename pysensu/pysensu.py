@@ -103,6 +103,7 @@ class Pysensu():
         r = self._api_call("{}/request".format(self.api_url), "post", json.dumps(data))
         if r.status_code != requests.codes.accepted:
             raise ValueError("Error requesting check ({}, {})".format(r.status_code, r.json))
+        return r.json()
 
     def get_all_events(self):
         r = self._api_call("{}/events".format(self.api_url), "get")
